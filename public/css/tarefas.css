@@ -1,0 +1,765 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+
+    background: #cbcbcc;
+    color: #222;
+
+    min-height: 100vh;
+
+}
+
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+
+#sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    height: 100vh;
+
+    width: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    color: black;
+
+    transition: .3s ease;
+
+    z-index: 10;
+
+}
+
+
+#sidebar.active {
+
+    width: 280px;
+
+}
+
+
+
+/* LOGO */
+
+.logo {
+
+    padding: 30px 25px;
+
+}
+
+
+.logo h1 {
+
+    font-size: 30px;
+
+}
+
+
+
+/* PERFIL */
+
+.perfil {
+
+    padding: 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+}
+
+
+
+.foto {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #555;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.perfil h2 {
+
+    font-size: 18px;
+
+}
+
+
+
+/* MENU */
+
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 30px;
+
+}
+
+
+
+nav a {
+
+    text-decoration: none;
+
+    color: black;
+
+    padding: 15px 25px;
+
+    transition: .2s;
+
+}
+
+
+
+nav a:hover {
+
+    background: #d4d4d4;
+
+}
+
+
+
+/* LOGOUT */
+
+
+.logout {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    width: 100%;
+
+    padding: 20px;
+
+}
+
+
+.logout button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: #e74c3c;
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: 1s;
+
+}
+
+.logout button:hover {
+    background: #ff7b6c;
+}
+
+
+
+
+
+/* ==========================
+   CONTEÚDO
+========================== */
+
+
+#content {
+
+    margin-left: 0;
+
+    transition: .3s ease;
+
+}
+
+
+
+#sidebar.active~#content {
+
+    margin-left: 280px;
+
+}
+
+
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
+
+header {
+
+    height: 5rem;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 3rem;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+
+    position: relative;
+
+}
+
+
+header h1 {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+
+
+#menu-btn {
+
+    background: none;
+
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+
+
+
+#btn-criar {
+
+    background: #4f46e5;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+}
+
+
+#btn-criar:hover {
+
+    background: #4338ca;
+
+}
+
+.btn-flutuante {
+
+    position: fixed;
+
+    right: 30px;
+
+    bottom: 30px;
+
+    width: 180px;
+
+    padding: 15px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+
+    z-index: 15;
+
+}
+
+
+.btn-flutuante:hover {
+
+    background: #4338ca;
+
+}
+
+
+
+
+/* ==========================
+   FILTROS
+========================== */
+
+
+.filtros {
+
+    padding: 30px;
+
+}
+
+
+.filtros form {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: end;
+
+    flex-wrap: wrap;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+
+}
+
+
+
+.filtros div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+
+.filtros input,
+.filtros select {
+
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+}
+
+
+
+.filtros button {
+
+    padding: 10px 20px;
+
+    border: none;
+
+    background: #111;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   CARDS DE TAREFA
+========================== */
+
+
+.tarefas {
+
+
+    padding: 0 30px 40px;
+
+
+    display: grid;
+
+
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+
+    gap: 20px;
+
+
+}
+
+
+
+.card {
+
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+    transition: .2s;
+
+
+}
+
+
+
+.card:hover {
+
+
+    transform: translateY(-5px);
+
+
+}
+
+
+
+.card-top {
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+}
+
+
+
+.card h2 {
+
+
+    font-size: 20px;
+
+
+}
+
+
+.status {
+
+    font-size: 12px;
+
+    margin-bottom: 1rem;
+
+}
+
+.status span {
+    background: #e0e7ff;
+
+    color: #3730a3;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+}
+
+
+
+.card p {
+
+
+    margin: 15px 0;
+
+    color: #555;
+
+
+}
+
+
+
+.infos {
+
+
+    margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+/* ==========================
+   BOTÕES
+========================== */
+
+
+.acoes {
+
+
+    display: flex;
+
+    gap: 10px;
+
+
+}
+
+
+
+.acoes button {
+
+
+    flex: 1;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+
+}
+
+
+
+.btn-editar,
+.edit-acoes {
+
+
+    background: #2563eb;
+
+    color: white;
+
+
+}
+
+
+
+.btn-excluir,
+.ex-acoes {
+
+
+    background: #dc2626;
+
+    color: white;
+
+
+}
+
+
+
+
+
+/* ==========================
+   MODAIS
+========================== */
+
+
+.modal {
+
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .5);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 20;
+
+
+}
+
+
+
+.modal.active {
+
+
+    display: flex;
+
+
+}
+
+
+
+.modal-content {
+
+
+    background: white;
+
+    width: 400px;
+
+    max-width: 90%;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+
+}
+
+
+
+.modal-content h2 {
+
+
+    margin-bottom: 20px;
+
+
+}
+
+
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+
+}
+
+
+
+.modal-content textarea {
+
+
+    height: 120px;
+
+    resize: none;
+
+
+}
+
+
+
+
+.modal-buttons {
+
+
+    display: flex;
+
+    gap: 10px;
+
+
+}
+
+
+
+.modal-buttons button {
+
+
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+
+}
+
+
+
+
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+
+@media(max-width:700px) {
+
+
+    #sidebar.active {
+
+        width: 230px;
+
+    }
+
+
+    header {
+
+        padding: 0 15px;
+
+    }
+
+
+    .filtros form {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+}

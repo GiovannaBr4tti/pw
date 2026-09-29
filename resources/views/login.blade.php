@@ -4,51 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>NextList - Login</title>
 
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 
 <body>
 
-<main>
-    <div class="login-box">
+    <main>
 
-        <h2>Login</h2>
+        <div class="login-box">
 
-        <form method="POST" action="/login">
-            @csrf
+            <div class="marca">
+                <h1>NextList</h1>
+                <p>organize o seu universo ✨</p>
+            </div>
 
-            <input 
-                type="email" 
-                name="email" 
-                placeholder="Email" 
-                required
-            >
+            <h2>Login</h2>
 
-            <input 
-                type="password" 
-                name="senha" 
-                placeholder="Senha" 
-                required
-            >
+            <form method="POST" action="/login">
 
-            <button type="submit">
-                Entrar
-            </button>
+                @csrf
 
-            <a href='/cadastro'>Cadastre-se</a>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    required>
 
-        </form>
+                <input
+                    type="password"
+                    name="senha"
+                    placeholder="Senha"
+                    autocomplete="current-password"
+                    required>
 
-        @if(session('erro'))
+                <button type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+            @if(session('erro'))
+
             <p class="erro">
                 {{ session('erro') }}
             </p>
-        @endif
 
-    </div>
-</main>
+            @endif
+
+            @if($errors->any())
+
+            <div class="erro">
+
+                @foreach($errors->all() as $erro)
+
+                <p>
+                    {{ $erro }}
+                </p>
+
+                @endforeach
+
+            </div>
+
+            @endif
+
+            <p class="trocar">
+                Ainda não tem conta?
+                <a href="/cadastro">Cadastre-se</a>
+            </p>
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>

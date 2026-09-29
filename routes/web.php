@@ -57,3 +57,4 @@ Route::put('/tarefas/{id}', [TarefasController::class, 'update'])
 
 Route::delete('/tarefas/{id}', [TarefasController::class, 'destroy'])
     ->name('tarefas.destroy');
+Route::view('/dashboard', 'dashboard')->middleware('auth')->name('dashboard');

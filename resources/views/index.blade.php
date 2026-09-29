@@ -5,120 +5,330 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <title>NextList</title>
+    <title>NextList - Organize suas tarefas</title>
 </head>
 
 <body>
 
-    <header>
+    <!-- TOPO -->
 
-        <div class="logo">
-            <img src="/image/logo.png" alt="Logo">
-            <h2>NextList</h2>
+    <header class="topo">
+
+        <div class="container">
+
+            <a href="/" class="logo">
+                <img src="/image/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <h2>NextList</h2>
+            </a>
+
+            <nav>
+                <a href="#recursos">Recursos</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="/sobre">Sobre</a>
+                <a href="/devs">Devs</a>
+                <a href="#contato">Contato</a>
+                <a href="/login" class="btn-nav">Login</a>
+            </nav>
+
         </div>
-
-        <nav>
-            <a href="/sobre">Sobre</a>
-            <a href="/devs">Devs</a>
-            <a href="/login">Login</a>
-        </nav>
 
     </header>
 
-        <main>
+
+    <main>
+
+        <div class="container">
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <div class="hero-texto">
+
+                    <span class="selo">✨ Organização simples e bonita</span>
+
+                    <h1>
+                        Organize suas tarefas e <span>conquiste o seu dia</span>
+                    </h1>
+
+                    <p>
+                        O NextList reúne tudo o que você precisa fazer em um só lugar:
+                        crie tarefas, defina prazos, acompanhe o status e veja o seu
+                        progresso em gráficos.
+                    </p>
+
+                    <div class="hero-botoes">
+                        <a href="/cadastro" class="btn">Começar agora</a>
+                        <a href="/login" class="btn-sec">Já tenho conta</a>
+                    </div>
+
+                </div>
+
+                <!-- prévia ilustrativa -->
+                <div class="mock" aria-hidden="true">
+
+                    <div class="mock-topo">
+                        <span>Minhas tarefas</span>
+                        <small>66% concluído</small>
+                    </div>
+
+                    <div class="mock-barra"><span></span></div>
+
+                    <div class="mock-tarefa">
+                        <strong>Entregar o trabalho</strong>
+                        <div class="mock-linha">
+                            <span class="pill azul">Em andamento</span>
+                            <span class="pill lilas">📅 30/09</span>
+                            <span class="pill ambar">Amanhã</span>
+                        </div>
+                    </div>
+
+                    <div class="mock-tarefa">
+                        <strong>Estudar para a prova</strong>
+                        <div class="mock-linha">
+                            <span class="pill rosa">Pendente</span>
+                            <span class="pill lilas">📅 03/10</span>
+                            <span class="pill azul">Em 5 dias</span>
+                        </div>
+                    </div>
+
+                    <div class="mock-tarefa">
+                        <strong>Revisar o código</strong>
+                        <div class="mock-linha">
+                            <span class="pill verde">Concluído</span>
+                            <span class="pill lilas">📅 27/09</span>
+                            <span class="pill verde">Concluída ✓</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
 
 
-        <div class="card">
+            <!-- RECURSOS -->
 
-            <h1>Bem-vindo ao NextList</h1>
+            <section class="secao" id="recursos">
 
-            <p>
-                Organize suas tarefas de forma simples e eficiente.
-            </p>
+                <div class="secao-cabecalho">
+                    <h2>Tudo para manter as tarefas em dia</h2>
+                    <p>Ferramentas simples para você não perder nenhum prazo.</p>
+                </div>
 
-            <br>
+                <div class="recursos">
 
-            <p>
-                Gerencie tarefas, usuários e mensagens de contato em um só lugar.
-            </p>
+                    <div class="recurso">
+                        <div class="icone">📝</div>
+                        <h3>Crie e edite tarefas</h3>
+                        <p>Adicione nome, descrição, prazo e status em segundos, e ajuste quando quiser.</p>
+                    </div>
 
-        </div>
+                    <div class="recurso">
+                        <div class="icone">📅</div>
+                        <h3>Prazos e filtros</h3>
+                        <p>Veja o que vence hoje, o que vem em breve ou filtre por período e por status.</p>
+                    </div>
 
-        <div class="contato-container">
-            <div class="contato-texto">
-                <h2>Contate-nos</h2>
-                <p>
-                    O NextList é um sistema simples e eficiente para gerenciamento de tarefas,
-                    usuários e mensagens. Aqui você pode organizar suas atividades, acompanhar
-                    prazos e manter tudo sob controle em um só lugar.
-                </p>
-            </div>
+                    <div class="recurso">
+                        <div class="icone">🏷️</div>
+                        <h3>Status coloridos</h3>
+                        <p>Identifique de relance o que está pendente, em andamento ou concluído.</p>
+                    </div>
 
-            <div class="contato">
+                    <div class="recurso">
+                        <div class="icone">📊</div>
+                        <h3>Dashboard com gráficos</h3>
+                        <p>Acompanhe o seu progresso, a carga dos próximos dias e a saúde dos seus prazos.</p>
+                    </div>
 
-                <h2>Entre em contato</h2>
+                </div>
 
-                <form action="/contatos" method="POST">
+            </section>
 
-                    @csrf
 
-                    <input
-                        type="text"
-                        name="txNome"
-                        placeholder="Nome"
-                        required>
+            <!-- COMO FUNCIONA -->
 
-                    <input
-                        type="email"
-                        name="txEmail"
-                        placeholder="Email"
-                        required>
+            <section class="secao" id="como-funciona">
 
-                    <input
-                        type="text"
-                        name="txAssunto"
-                        placeholder="Assunto"
-                        required>
+                <div class="secao-cabecalho">
+                    <h2>Como funciona</h2>
+                    <p>Em três passos você já está organizado.</p>
+                </div>
 
-                    <textarea
-                        name="txMensagem"
-                        placeholder="Digite sua mensagem"
-                        required></textarea>
+                <div class="passos">
 
-                    <button type="submit">
-                        Enviar mensagem
-                    </button>
+                    <div class="passo">
+                        <div class="numero">1</div>
+                        <h3>Crie a sua conta</h3>
+                        <p>Faça o cadastro gratuito e entre no NextList.</p>
+                    </div>
 
-                </form>
+                    <div class="passo">
+                        <div class="numero">2</div>
+                        <h3>Adicione as suas tarefas</h3>
+                        <p>Registre o que precisa fazer e defina o prazo de cada uma.</p>
+                    </div>
 
-            </div>
+                    <div class="passo">
+                        <div class="numero">3</div>
+                        <h3>Acompanhe o progresso</h3>
+                        <p>Use os filtros e o dashboard para ver como você está indo.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CHAMADA -->
+
+            <section class="secao">
+
+                <div class="chamada">
+                    <h2>Pronto para organizar o seu universo?</h2>
+                    <p>Comece agora e deixe as suas tarefas sempre à vista.</p>
+                    <a href="/cadastro" class="btn">Criar minha conta</a>
+                </div>
+
+            </section>
+
+
+            <!-- CONTATO -->
+
+            <section class="secao" id="contato">
+
+                <div class="contato-container">
+
+                    <div class="contato-texto">
+
+                        <h2>Fale com a gente</h2>
+
+                        <p>
+                            Tem uma dúvida, sugestão ou encontrou algum problema no NextList?
+                            Envie uma mensagem e a nossa equipe responde o mais rápido possível.
+                        </p>
+
+                        <div class="contato-info">
+                            ✉️ nextlist@email.com
+                        </div>
+
+                    </div>
+
+                    <div class="contato">
+
+                        <h3>Entre em contato</h3>
+
+                        <form action="/contatos" method="POST">
+
+                            @csrf
+
+                            <input
+                                type="text"
+                                name="txNome"
+                                placeholder="Nome"
+                                required>
+
+                            <input
+                                type="email"
+                                name="txEmail"
+                                placeholder="Email"
+                                required>
+
+                            <input
+                                type="text"
+                                name="txAssunto"
+                                placeholder="Assunto"
+                                required>
+
+                            <textarea
+                                name="txMensagem"
+                                placeholder="Digite sua mensagem"
+                                required></textarea>
+
+                            <button type="submit">
+                                Enviar mensagem
+                            </button>
+
+                        </form>
+
+                        @if(session('sucesso'))
+
+                        <p class="sucesso">
+                            {{ session('sucesso') }}
+                        </p>
+
+                        @endif
+
+                        @if(session('erro'))
+
+                        <p class="erro">
+                            {{ session('erro') }}
+                        </p>
+
+                        @endif
+
+                        @if($errors->any())
+
+                        <div class="erro">
+
+                            @foreach($errors->all() as $erro)
+
+                            <p>{{ $erro }}</p>
+
+                            @endforeach
+
+                        </div>
+
+                        @endif
+
+                    </div>
+
+                </div>
+
+            </section>
+
         </div>
 
     </main>
 
-    <footer>
 
-        <h2>NextList</h2>
+    <!-- RODAPÉ -->
 
-        <div class="footer-column">
+    <footer class="rodape">
 
-        <div class="footer-section">
-            <h3>Navegação</h3>
-            <p>Tarefas</p>
-            <p>Usuários</p>
-            <p>Mensagens</p>
+        <div class="container">
+
+            <div class="rodape-grade">
+
+                <div class="rodape-marca">
+                    <h2>NextList</h2>
+                    <p>Organize suas tarefas de forma simples, bonita e eficiente.</p>
+                </div>
+
+                <div class="rodape-colunas">
+
+                    <div class="rodape-secao">
+                        <h4>Navegação</h4>
+                        <a href="/login">Entrar</a>
+                        <a href="/cadastro">Cadastro</a>
+                        <a href="/sobre">Sobre</a>
+                        <a href="/devs">Devs</a>
+                    </div>
+
+                    <div class="rodape-secao">
+                        <h4>Contato</h4>
+                        <p>nextlist@email.com</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="rodape-copy">
+                © 2026 NextList ✨ organize o seu universo, uma tarefa de cada vez.
+            </div>
+
         </div>
-
-        <div class="footer-section">
-            <h3>Contato</h3>
-            <p>nextlist@email.com</p>
-        </div>
-        </div>
-
-        <div class="footer-section2">
-            <p>© 2026 NextList</p>
-        </div>
-
 
     </footer>
 
